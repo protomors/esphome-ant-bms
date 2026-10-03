@@ -20,8 +20,8 @@ ICON_BUZZER = "mdi:volume-high"
 
 SWITCHES = {
     # turn on register, turn off register
-    CONF_DISCHARGING: [0x0003, 0x0001],
-    CONF_CHARGING: [0x0006, 0x0004],
+    CONF_DISCHARGING: [0x0006, 0x0004],
+    CONF_CHARGING: [0x0003, 0x0001],
     CONF_BALANCER: [0x000D, 0x000E],
     CONF_BUZZER: [0x001E, 0x001F],
 }
