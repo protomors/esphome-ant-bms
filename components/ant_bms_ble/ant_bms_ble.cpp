@@ -504,7 +504,7 @@ void AntBmsBle::on_status_data_(const std::vector<uint8_t> &data) {
   this->publish_state_(this->state_of_health_sensor_, ant_get_16bit(44 + offset) * 1.0f);
 
   //  82   1  0x01        Charge MOS status
-  uint8_t raw_charge_mosfet_status = data[46 + offset];
+  uint8_t raw_charge_mosfet_status = data[47 + offset];
   this->publish_state_(this->charge_mosfet_status_code_sensor_, (float) raw_charge_mosfet_status);
   if (raw_charge_mosfet_status < CHARGE_MOSFET_STATUS_SIZE) {
     this->publish_state_(this->charge_mosfet_status_text_sensor_, CHARGE_MOSFET_STATUS[raw_charge_mosfet_status]);
@@ -514,7 +514,7 @@ void AntBmsBle::on_status_data_(const std::vector<uint8_t> &data) {
   this->publish_state_(this->charging_switch_, (bool) (raw_charge_mosfet_status == 0x01));
 
   //  83   1  0x02        Discharge MOS status
-  uint8_t raw_discharge_mosfet_status = data[47 + offset];
+  uint8_t raw_discharge_mosfet_status = data[46 + offset];
   this->publish_state_(this->discharge_mosfet_status_code_sensor_, (float) raw_discharge_mosfet_status);
   if (raw_discharge_mosfet_status < DISCHARGE_MOSFET_STATUS_SIZE) {
     this->publish_state_(this->discharge_mosfet_status_text_sensor_,
